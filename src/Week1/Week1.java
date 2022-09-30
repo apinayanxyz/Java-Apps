@@ -16,14 +16,23 @@ public class Week1
         System.out.println();
         System.out.println(" by Apinayan Kanenthirarasa");
         System.out.println();
-
         //Exercise 1
-
+        startExercise1();
         //Exercise 2
+        startExercise2();
+        //Exercise 3
+
+    }
+
+
+    private static void startExercise1() {
+        //Exercise 1
+        System.out.println("Hello world");
+    }
+
+    private static void startExercise2() {
         String name = InputReader.getString("Enter your name > ");
         System.out.println("Hello " + name);
         System.out.println();
-        //Exercise 3
-
-    } 
+    }
 }
