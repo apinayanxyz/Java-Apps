@@ -14,10 +14,16 @@ public class Week1
         System.out.println();
         System.out.println("  Week 1 Java Basic Input/Output ");
         System.out.println();
-        System.out.println(" by Nicholas Day and Derek Peacock");
+        System.out.println(" by Apinayan Kanenthirarasa");
         System.out.println();
 
+        //Exercise 1
+
+        //Exercise 2
         String name = InputReader.getString("Enter your name > ");
         System.out.println("Hello " + name);
+        System.out.println();
+        //Exercise 3
+
     } 
 }

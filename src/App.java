@@ -1,4 +1,5 @@
 import helpers.ConsoleColours;
+import helpers.InputReader;
 
 public class App 
 {
@@ -11,7 +12,8 @@ public class App
         System.out.println("CO452 Programming Concepts 2022/23");
         System.out.println("==================================");
         System.out.println();
-        System.out.println(" by Nicholas Day and Derek Peacock");
+        //String myName= InputReader.getString("Enter name here");
+        System.out.println(" by Apinayan Kanenthirarasa");
         System.out.println();
 
     }
