@@ -18,7 +18,7 @@ public class Week1
         System.out.println();
 
         //Exercise 1
-
+        System.out.println("Hello world");
         //Exercise 2
         String name = InputReader.getString("Enter your name > ");
         System.out.println("Hello " + name);
