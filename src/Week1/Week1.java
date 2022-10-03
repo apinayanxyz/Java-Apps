@@ -21,6 +21,7 @@ public class Week1
         //Exercise 2
         startExercise2();
         //Exercise 3
+        startExercise3();
 
     }
 
@@ -34,5 +35,11 @@ public class Week1
         String name = InputReader.getString("Enter your name > ");
         System.out.println("Hello " + name);
         System.out.println();
+    }
+    
+    private static void startExercise3(){
+        int rectangleLength = InputReader.getString("Enter the length of your rectangle :");
+        int rectangleHeight = InputReader.getString("Enter the Height of your rectangle :");
+        
     }
 }
