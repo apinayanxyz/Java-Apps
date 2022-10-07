@@ -15,5 +15,14 @@ public class Week02
         System.out.println();
         System.out.println(" by Nicholas Day and Derek Peacock");
         System.out.println();
-    }     
+
+        startExercise1();
+    }
+
+    /*
+    * Exercise 1
+    * Extend exercise 6 from Week 1 to output a message if the user is 18 or older.
+    */
+    private static void startExercise1() {
+    }
 }
