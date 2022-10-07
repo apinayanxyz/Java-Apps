@@ -1,6 +1,6 @@
 package Week1;
 
-import helpers.InputReader;
+import helpers.*;
 public class Week1 
 {
     public static final String CONSOLE_CLEAR = "\033[H\033[2J";
@@ -59,20 +59,20 @@ public class Week1
         System.out.println("Average finder");
         double userInt1 = InputReader.getDouble("Enter your first number");
         double userInt2 = InputReader.getDouble("Enter your second number");
-        double average = (userInp1 + userInp2) / 2;
+        double average = (userInt1 + userInt2) / 2;
     }
     
     private static void startExercise5(){
         int userNum1 = InputReader.getInt("Enter your first value:");
         int userNum2 = InputReader.getInt("Enter your second value:");
-        System.out.println("Original order:" userNum1 + "," + userNum2);
-        System.out.println("Reversed order:" userNum2 + "," + userNum1);
+        System.out.println("Original order:"+ userNum1 + "," + userNum2);
+        System.out.println("Reversed order:"+ userNum2 + "," + userNum1);
     }
     
     private static void startExercise6(){
         int userAge = InputReader.getInt("Enter your age:");
         int userDOB = 2022 - userAge;
-        System.out.println("You were born between " userDOB-1 + "-" + userDOB)
+        System.out.println("You were born between "+ (userDOB-1)+ "-" + userDOB);
     }
     
     private static void startExercise8(){
