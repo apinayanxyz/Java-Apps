@@ -13,12 +13,9 @@ public class Student {
         this.fullName = fullName;
     }
 
-    public void printDetails() {
-        System.out.println("StudentID: " + id);
-        System.out.println("Name: " + fullName);
-        System.out.println();
-        System.out.println("Course Name:" + course.getCourseName());
-        System.out.println("Course code:" + course.getCourseCode());
+    // Course getter and "setter"
+    public Course getCourse() {
+        return course;
     }
 
     public void enroll(Course course) {
