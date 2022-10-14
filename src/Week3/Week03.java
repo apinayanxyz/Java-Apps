@@ -17,12 +17,17 @@ public class Week03 {
         System.out.println(" by Apinayan Kanenthirarasa");
         System.out.println();
         Student student = createStudent();
-        createCourse(student);
+        Course course = createCourse(student);
+        enrolStudent(course, student);
         printStudentDetails(student);
     }
 
+    private static void enrolStudent(Course course, Student student) {
+        student.enroll(course);
+    }
+
     private static void printStudentDetails(Student student) {
-        
+
         System.out.println("StudentID: " + student.getId());
         System.out.println("Name: " + student.getFullName());
         System.out.println();
@@ -30,7 +35,7 @@ public class Week03 {
         System.out.println("Course code:" + student.getCourse().getCourseCode());
     }
 
-    private static void createCourse(Student student) {
+    private static Course createCourse(Student student) {
         String courseName;
         boolean cNameChecker = true;
         do {
@@ -51,8 +56,7 @@ public class Week03 {
         } while (cCodeChecker);
         Course course = new Course(courseName, courseCode);
         System.out.println();
-
-        student.enroll(course);
+        return course;
     }
 
     /*
