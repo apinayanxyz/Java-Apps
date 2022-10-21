@@ -9,10 +9,15 @@ package CW1;
  * @author: Apinayan Kanenthirarasa
  */
 
+import java.util.ArrayList;
+
 public class Main {
     /*
      * This method will start the menu that the user will use.
      */
+
+    ArrayList<Songs> songList = new ArrayList<Songs>();
+
     public static void main(String[] args) throws Exception {
 
         System.out.println("==================================");
@@ -25,9 +30,11 @@ public class Main {
         System.out.println();
         startMenu();
     }
+
     /*
      * This method will provide the user with the options mentioned above.
-     * This menu has been given its own menu to allow for the program to call the menu after a task has been complete.
+     * This menu has been given its own menu to allow for the program to call the
+     * menu after a task has been complete.
      */
     private static void startMenu() {
         addSong();
@@ -36,16 +43,40 @@ public class Main {
         printSongsOverNoPlays();
         exit();
     }
+
+    /*
+     * Finds a specified song.
+     */
     private static void findSong() {
     }
+
+    /*
+     * Adds songs to list.
+     */
     private static void addSong() {
     }
+
+    /*
+     * Remove certain song from list.
+     */
     private static void deleteSong() {
     }
+
+    /*
+     * Prints all songs in list.
+     */
     private static void printSongs() {
     }
+
+    /*
+     * Prints songs that have over a certain number of plays
+     */
     private static void printSongsOverNoPlays() {
     }
+
+    /*
+     * Exits the program
+     */
     private static void exit() {
     }
 }
