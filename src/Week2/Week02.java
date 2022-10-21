@@ -27,6 +27,10 @@ public class Week02
         startExercise3();
         startExercise4();
         startExercise5();
+        startExercise6();
+    }
+
+    private static void startExercise6() {
     }
 
     /*
@@ -36,7 +40,7 @@ public class Week02
     private static void startExercise5() {
         System.out.println("Exercise 5");
         int product;
-        int userValue=InputReader.getInt("Enter your final number");
+        int userValue=InputReader.getInt("Enter your final number > ");
         for (int value=ZERO;value<=userValue;value++){
             product=value*SEVEN;
             System.out.println(SEVEN + "*" + value + "=" + product);
@@ -77,7 +81,7 @@ public class Week02
 
     private static void startExercise2() {
         System.out.println("Exercise 2");
-        String stringGrade=InputReader.getString("Enter your age");
+        String stringGrade=InputReader.getString("Enter your Grade");
         char studentGrade=stringGrade.charAt(0);
         switch(studentGrade){
             case 'A':

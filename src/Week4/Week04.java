@@ -13,7 +13,7 @@ public class Week04
         System.out.println();
         System.out.println("  Week 4 Java Collections, Lists, Arrays ");
         System.out.println();
-        System.out.println(" by Nicholas Day and Derek Peacock");
+        System.out.println(" by Apinayan Kanenthirarasa");
         System.out.println();
     }     
     
