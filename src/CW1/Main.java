@@ -15,7 +15,7 @@ import helpers.InputReader;
 
 public class Main {
 
-    ArrayList<Songs> songList = new ArrayList<Songs>();
+    ArrayList<Song> songList = new ArrayList<Song>();
 
     /*
      * This method will start the menu that the user will use.
