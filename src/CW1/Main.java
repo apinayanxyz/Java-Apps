@@ -11,13 +11,15 @@ package CW1;
 
 import java.util.ArrayList;
 
+import helpers.InputReader;
+
 public class Main {
-    /*
-     * This method will start the menu that the user will use.
-     */
 
     ArrayList<Songs> songList = new ArrayList<Songs>();
 
+    /*
+     * This method will start the menu that the user will use.
+     */
     public static void main(String[] args) throws Exception {
 
         System.out.println("==================================");
@@ -37,11 +39,40 @@ public class Main {
      * menu after a task has been complete.
      */
     private static void startMenu() {
-        addSong();
-        deleteSong();
-        printSongs();
-        printSongsOverNoPlays();
-        exit();
+        System.out.println("Main Menu");
+        System.out.println("");
+        System.out.println(" Please choose 1 from the options below");
+        System.out.println("------------------------------------------");
+        System.out.println("  1. Add a song");
+        System.out.println("  2. Remove a song");
+        System.out.println("  3. Print all songs");
+        System.out.println("  4. Print all songs over chosen number of plays");
+        System.out.println("  5. Exit program");
+        System.out.println("------------------------------------------");
+        System.out.println("");
+        String userInp = InputReader.getString(">");
+        switch (userInp) {
+            case "1":
+                addSong();
+                break;
+
+            case "2":
+                deleteSong();
+                break;
+            case "3":
+                printSongs();
+                break;
+            case "4":
+                printSongsOverNoPlays();
+                break;
+            case "5":
+                exit();
+                break;
+            default:
+                System.out.println("Invalid option chosen");
+                System.out.println("Please pick from one of the options above");
+                startMenu();
+        }
     }
 
     /*
