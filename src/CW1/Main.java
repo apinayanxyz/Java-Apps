@@ -30,27 +30,37 @@ public class Main {
         System.out.println();
         System.out.println(" by Apinayan Kanenthirarasa");
         System.out.println();
+        System.out.println("------------------------------------------------------");
+        startFileReader();
         startMenu();
+        
+    }
+
+    /*
+     * This method will take songs from a file and add them to the list at the start of program.
+     */
+    private static void startFileReader() {
+        
     }
 
     /*
      * This method will provide the user with the options mentioned above.
-     * This menu has been given its own menu to allow for the program to call the
+     * This menu has been given its own method to allow for the program to call the
      * menu after a task has been complete.
      */
     private static void startMenu() {
         System.out.println("Main Menu");
-        System.out.println("");
-        System.out.println(" Please choose 1 from the options below");
+        System.out.println(" \n Please choose 1 from the options below");
         System.out.println("------------------------------------------");
         System.out.println("  1. Add a song");
         System.out.println("  2. Remove a song");
         System.out.println("  3. Print all songs");
         System.out.println("  4. Print all songs over chosen number of plays");
-        System.out.println("  5. Exit program");
-        System.out.println("------------------------------------------");
-        System.out.println("");
-        String userInp = InputReader.getString(">");
+        System.out.println("  5. Prints top 10 songs by plays");
+        System.out.println("  6. Print songs released in a certain year");
+        System.out.println("  7. Exit program");
+        System.out.println("------------------------------------------ \n");
+        String userInp = InputReader.getString("> ");
         switch (userInp) {
             case "1":
                 addSong();
@@ -66,6 +76,12 @@ public class Main {
                 printSongsOverNoPlays();
                 break;
             case "5":
+                printTop10();
+                break;
+            case "6":
+                printSongsFromAYear(); 
+                break;   
+            case "7":
                 exit();
                 break;
             default:
@@ -73,6 +89,17 @@ public class Main {
                 System.out.println("Please pick from one of the options above");
                 startMenu();
         }
+    }
+    /*
+     * Prints the top 10 songs or, if there are not 100 songs in the list, all songs sorted in play order
+     */
+    private static void printTop10() {
+    }
+
+    /*
+     * Prints songs that were released from a yerar
+     */
+    private static void printSongsFromAYear() {
     }
 
     /*
