@@ -10,12 +10,13 @@ package CW1;
  */
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 import helpers.InputReader;
 
 public class Main {
 
-    ArrayList<Song> songList = new ArrayList<Song>();
+    static ArrayList<Song> songList = new ArrayList<Song>();
 
     /*
      * This method will start the menu that the user will use.
@@ -33,14 +34,15 @@ public class Main {
         System.out.println("------------------------------------------------------");
         startFileReader();
         startMenu();
-        
+
     }
 
     /*
-     * This method will take songs from a file and add them to the list at the start of program.
+     * This method will take songs from a file and add them to the list at the start
+     * of program.
      */
     private static void startFileReader() {
-        
+
     }
 
     /*
@@ -65,7 +67,6 @@ public class Main {
             case "1":
                 addSong();
                 break;
-
             case "2":
                 deleteSong();
                 break;
@@ -79,8 +80,8 @@ public class Main {
                 printTop10();
                 break;
             case "6":
-                printSongsFromAYear(); 
-                break;   
+                printSongsFromAYear();
+                break;
             case "7":
                 exit();
                 break;
@@ -90,8 +91,10 @@ public class Main {
                 startMenu();
         }
     }
+
     /*
-     * Prints the top 10 songs or, if there are not 100 songs in the list, all songs sorted in play order
+     * Prints the top 10 songs or, if there are not 100 songs in the list, all songs
+     * sorted in play order
      */
     private static void printTop10() {
     }
@@ -112,12 +115,115 @@ public class Main {
      * Adds songs to list.
      */
     private static void addSong() {
+        System.out.println("------------------------------------------");
+        System.out.println("Add song: \n");
+        System.out.println(" Please enter the name of the song");
+        String songTitle = InputReader.getString("  >");
+        System.out.println(" Please enter the artist(s) of the song");
+        String artistName = InputReader.getString("  >");
+        System.out.println(" Please enter the number of plays it has");
+        // This will check if the input for number of plays is an integer, and prevents
+        // program from crashing if it isn't
+        int nOfPlays;
+        do {
+            try {
+                nOfPlays = InputReader.getInt("  >");
+                break;
+            } catch (InputMismatchException e) {
+            }
+        } while (true);
+        System.out.println(" Please enter the year of release");
+        int yearOfRelease;
+        /*
+         * This will check if the input for year is an integer, and prevents
+         * program from crashing if it isn't
+         */
+        do {
+            try {
+                yearOfRelease = InputReader.getInt("  >");
+                break;
+            } catch (InputMismatchException e) {
+            }
+        } while (true);
+        System.out.println(" Please enter the number of minutes in the song");
+        /*
+         * This will check if the input for the number of minutes is an integer,
+         * and prevents program from crashing if it isn't
+         */
+        int lengthMinute;
+        do {
+            try {
+                lengthMinute = InputReader.getInt("  >");
+                break;
+            } catch (InputMismatchException e) {
+            }
+        } while (true);
+        System.out.println(" Please enter the number of seconds in the song");
+        /*
+         * This will check if the input for the number of seconds is an integer and
+         * under 60 seconds,
+         * and prevents program from crashing if it isn't
+         */
+        int lengthSecond;
+        boolean under60Checker = false;
+        do {
+
+            do {
+                try {
+                    lengthSecond = InputReader.getInt(" >");
+                    break;
+                } catch (InputMismatchException e) {
+                }
+            } while (true);
+
+            if (lengthSecond < 60) {
+                under60Checker = true;
+            } else {
+                System.out.println("Seconds must be under 60");
+            }
+        } while (!under60Checker);
+        System.out.println("");
+        System.out.println(" Are you sure this is right?");
+        String sureChecker;
+        do {
+            sureChecker=InputReader.getString("  >");
+            if(sureChecker.contains("yes")){
+                break;
+            }
+            else if (sureChecker.contains("no")){
+                addSong();
+                break;
+            }
+            else{
+                System.out.println("Invalid response");
+            }
+        } while (true);
+
+        Song song = new Song(songTitle, artistName, nOfPlays, yearOfRelease, lengthMinute, lengthSecond);
+        songList.add(song);
+        System.out.println("------------------------------------------");
+        startMenu();
     }
 
     /*
      * Remove certain song from list.
      */
     private static void deleteSong() {
+        System.out.println("------------------------------------------");
+        System.out.println("Deleting a song");
+        if (isEmpty()) {
+            System.out.println(" There is nothing to remove");
+        } else {
+            System.out.println(" Enter the name of the song you want to remove");
+        }
+    }
+
+    // Checks if the list is empty, for deletion method
+    private static boolean isEmpty() {
+        if (songList.size() == 0) {
+            return true;
+        }
+        return false;
     }
 
     /*
