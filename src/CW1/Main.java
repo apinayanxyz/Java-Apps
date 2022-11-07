@@ -144,7 +144,7 @@ public class Main {
      */
     private static void printSongsFromAYear() {
         System.out.println("------------------------------------------");
-        System.out.println("Printing songs from acertain year");
+        System.out.println("Printing songs from a certain year");
         System.out.println(" Enter the year");
         int tempYear;
         do {
@@ -157,7 +157,7 @@ public class Main {
         System.out.println();
         for (int i = 0; i < songList.size() - 1; i++) {
             Song tempSong = songList.get(i);
-            if (tempSong.getNumOfPlays() == tempYear) {
+            if (tempSong.getYearOfRelease() == tempYear) {
                 System.out.println(tempSong.getSongTitle() + " by " + tempSong.getArtistName() + "|"
                         + tempSong.getYearOfRelease() + "|" + tempSong.getYearOfRelease() + "|"
                         + tempSong.getLengthMinute()
