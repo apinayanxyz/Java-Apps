@@ -9,6 +9,10 @@ package CW1;
  * @author: Apinayan Kanenthirarasa
  */
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
@@ -32,16 +36,8 @@ public class Main {
         System.out.println(" by Apinayan Kanenthirarasa");
         System.out.println();
         System.out.println("------------------------------------------------------");
-        startFileReader();
+
         startMenu();
-
-    }
-
-    /*
-     * This method will take songs from a file and add them to the list at the start
-     * of program.
-     */
-    private static void startFileReader() {
 
     }
 
