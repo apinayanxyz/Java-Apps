@@ -1,8 +1,10 @@
-Did you see the sunrise?^Chogakusei^145602^2022^3^43
-Welcome to the Black Parade^My Chemical Romance^582013499^2006^5^11
-The Ghost Show^Arai Tasuku^9380^2022^4^54
-Happier Than Ever^Billie Eilish^824758798^2021^5^58
-Photograph^Ed Sheeran^1995299615^2014^4^18
-Shivers^Ed Sheeran^1004216748^2021^3^27
-Glimpse of Us^Joji^597247251^2022^3^53
-I'll Be Good^James Young^181015008^2017^4^07
+| Did you see the sunrise? | Chogakusei | 145602 | 2022 | 3 | 43 |
+| Welcome to the Black Parade | My Chemical Romance | 582013499 | 2006 | 5 | 11 |
+| The Ghost Show | Arai Tasuku | 9380 | 2022 | 4 | 54 |
+| Happier Than Ever | Billie Eilish | 824758798 | 2021 | 5 | 58 |
+| Photograph | Ed Sheeran | 1995299615 | 2014 | 4 | 18 |
+| Shivers | Ed Sheeran | 1004216748 | 2021 | 3 | 27 |
+| Glimpse of Us | Joji | 597247251 | 2022 | 3 | 53 |
+| I'll Be Good | James Young | 181015008 | 2017 | 4 | 07 |
+| Nascence | Austin Wintory | 15635781 | 2012 | 1 | 46 |
+| Threshold | Austin Wintory | 4921553 | 2012 | 6 | 05 |

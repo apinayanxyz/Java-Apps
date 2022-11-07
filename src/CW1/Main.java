@@ -41,13 +41,20 @@ public class Main {
 
     }
 
-    //This method adds songs into the list before the menu starts
+    // This method adds songs into the list before the menu starts
     private static void addPresetSongs() {
-        Song[] initialList=new Song[10];
-        initialList[0]= new Song("Did you see the sunrise", "Chogakusei", 145601 , 2022, 4, 43);
-        initialList[1]= new Song("Welcome to the Black Parade", "My Chemical Romance", 582013499, 2006, 5, 11);
-        initialList[2];
-        for(int i = 0 ; i < 10 ; i++){
+        Song[] initialList = new Song[10];
+        initialList[0] = new Song("Did you see the sunrise", "Chogakusei", 145601, 2022, 4, 43);
+        initialList[1] = new Song("Welcome to the Black Parade", "My Chemical Romance", 582013499, 2006, 5, 11);
+        initialList[2] = new Song("The Ghost Show", "Arai Tasuku", 9380, 2022, 4, 54);
+        initialList[3] = new Song("Happier Than Ever", "Billie Eilish", 824758798, 2021, 5, 58);
+        initialList[4] = new Song("Photograph", "Ed Sheeran", 1995299615, 2014, 4, 18);
+        initialList[5] = new Song("Shivers", "Ed Sheeran", 1004216748, 2021, 3, 27);
+        initialList[6] = new Song("Glimpse of Us", "Joji", 597247251, 2022, 3, 53);
+        initialList[7] = new Song("I'll Be Good", "James Young", 181015008, 2017, 4, 07);
+        initialList[8] = new Song("Nascence", "Austin Wintory", 15635781, 2012, 1, 46);
+        initialList[9] = new Song("Threshold", "Austin Wintory", 4921553, 2012, 6, 05);
+        for (int i = 0; i < 10; i++) {
             songList.add(initialList[i]);
         }
     }
@@ -118,7 +125,7 @@ public class Main {
             for (int i = 0; i < tempList.length - 1; i++) {
                 Song tempSong1 = tempList[i];
                 Song tempSong2 = tempList[i + 1];
-                if (tempSong1.getNumOfPlays() > tempSong2.getNumOfPlays()) {
+                if (tempSong1.getNumOfPlays() < tempSong2.getNumOfPlays()) {
                     Song tempSong = tempList[i];
                     tempList[i] = tempList[i + 1];
                     tempList[i + 1] = tempSong;
@@ -128,9 +135,9 @@ public class Main {
             }
         } while (!bubbleSorted);
         if (tempList.length <= 10) {
-            for (int i = 0; i < tempList.length ; i++) {
+            for (int i = 0; i < tempList.length; i++) {
                 Song tempSong = tempList[i];
-                System.out.println(tempSong.getSongTitle() + " by " + tempSong.getArtistName() + "|"
+                System.out.println(i + 1 + "." + tempSong.getSongTitle() + " by " + tempSong.getArtistName() + "|"
                         + tempSong.getYearOfRelease() + "|" + tempSong.getNumOfPlays() + "|"
                         + tempSong.getLengthMinute()
                         + ":" + tempSong.getLengthSecond());
@@ -138,7 +145,7 @@ public class Main {
         } else {
             for (int i = 0; i < 10; i++) {
                 Song tempSong = tempList[i];
-                System.out.println(tempSong.getSongTitle() + " by " + tempSong.getArtistName() + "|"
+                System.out.println(i + "." + tempSong.getSongTitle() + " by " + tempSong.getArtistName() + "|"
                         + tempSong.getYearOfRelease() + "|" + tempSong.getNumOfPlays() + "|"
                         + tempSong.getLengthMinute()
                         + ":" + tempSong.getLengthSecond());
@@ -166,7 +173,7 @@ public class Main {
             }
         } while (true);
         System.out.println();
-        for (int i = 0; i < songList.size() ; i++) {
+        for (int i = 0; i < songList.size(); i++) {
             Song tempSong = songList.get(i);
             if (tempSong.getYearOfRelease() == tempYear) {
                 System.out.println(tempSong.getSongTitle() + " by " + tempSong.getArtistName() + "|"
@@ -178,12 +185,6 @@ public class Main {
 
         System.out.println("------------------------------------------");
         startMenu();
-    }
-
-    /*
-     * Finds a specified song.
-     */
-    private static void findSong() {
     }
 
     /*
@@ -310,14 +311,15 @@ public class Main {
                     }
                 } while (sure);
                 System.out.println("------------------------------------------");
+                startMenu();
             }
         }
     }
 
     private static int findByTitle(String tempSongName) {
-        for (int i = 0; i < songList.size() ; i++) {
-            Song tempSong = songList.get(i);
-            if (tempSong.getSongTitle() == tempSongName) {
+        for (int i = 0; i < songList.size(); i++) {
+            Song tempSong = (songList.get(i));
+            if (tempSong.getSongTitle().equalsIgnoreCase(tempSongName)) {
                 return i;
             }
 
@@ -340,7 +342,7 @@ public class Main {
         System.out.println("------------------------------------------");
         System.out.println("Printing all songs");
         System.out.println();
-        for (int i = 0; i < songList.size() ; i++) {
+        for (int i = 0; i < songList.size(); i++) {
             Song tempSong = songList.get(i);
             System.out.println(tempSong.getSongTitle() + " by " + tempSong.getArtistName() + "|"
                     + tempSong.getYearOfRelease() + "|" + tempSong.getNumOfPlays() + "|" + tempSong.getLengthMinute()
@@ -366,7 +368,7 @@ public class Main {
             }
         } while (true);
         System.out.println();
-        for (int i = 0; i < songList.size() ; i++) {
+        for (int i = 0; i < songList.size(); i++) {
             Song tempSong = songList.get(i);
             if (tempSong.getNumOfPlays() > minNumOfPlays) {
                 System.out.println(tempSong.getSongTitle() + " by " + tempSong.getArtistName() + "|"
@@ -384,5 +386,6 @@ public class Main {
      * Exits the program
      */
     private static void exit() {
+        System.exit(0);
     }
 }
