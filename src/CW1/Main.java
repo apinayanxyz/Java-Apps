@@ -90,6 +90,8 @@ public class Main {
                 System.out.println("Please pick from one of the options above");
                 startMenu();
         }
+
+        System.out.println("------------------------------------------");
     }
 
     /*
@@ -97,12 +99,78 @@ public class Main {
      * sorted in play order
      */
     private static void printTop10() {
+        System.out.println("------------------------------------------");
+        System.out.println("Top 10 song list");
+        boolean bubbleSorted = false;
+        Song[] tempList = new Song[songList.size()];
+        for (int i = 0; i < tempList.length - 1; i++) {
+            tempList[i] = songList.get(i);
+        }
+        do {
+            bubbleSorted = true;
+            for (int i = 0; i < tempList.length - 2; i++) {
+                Song tempSong1 = tempList[i];
+                Song tempSong2 = tempList[i + 1];
+                if (tempSong1.getNumOfPlays() > tempSong2.getNumOfPlays()) {
+                    Song tempSong = tempList[i];
+                    tempList[i] = tempList[i + 1];
+                    tempList[i + 1] = tempSong;
+                    bubbleSorted = false;
+                }
+
+            }
+        } while (!bubbleSorted);
+        if (tempList.length <= 10) {
+            for (int i = 0; i < tempList.length - 1; i++) {
+                Song tempSong = tempList[i];
+                System.out.println(tempSong.getSongTitle() + " by " + tempSong.getArtistName() + "|"
+                        + tempSong.getYearOfRelease() + "|" + tempSong.getYearOfRelease() + "|"
+                        + tempSong.getLengthMinute()
+                        + ":" + tempSong.getLengthSecond());
+            }
+        } else {
+            for (int i = 0; i < 10; i++) {
+                Song tempSong = tempList[i];
+                System.out.println(tempSong.getSongTitle() + " by " + tempSong.getArtistName() + "|"
+                        + tempSong.getYearOfRelease() + "|" + tempSong.getYearOfRelease() + "|"
+                        + tempSong.getLengthMinute()
+                        + ":" + tempSong.getLengthSecond());
+
+            }
+        }
+
+        System.out.println("------------------------------------------");
+        startMenu();
     }
 
     /*
      * Prints songs that were released from a yerar
      */
     private static void printSongsFromAYear() {
+        System.out.println("------------------------------------------");
+        System.out.println("Printing songs from acertain year");
+        System.out.println(" Enter the year");
+        int tempYear;
+        do {
+            try {
+                tempYear = InputReader.getInt("  >");
+                break;
+            } catch (InputMismatchException e) {
+            }
+        } while (true);
+        System.out.println();
+        for (int i = 0; i < songList.size() - 1; i++) {
+            Song tempSong = songList.get(i);
+            if (tempSong.getNumOfPlays() == tempYear) {
+                System.out.println(tempSong.getSongTitle() + " by " + tempSong.getArtistName() + "|"
+                        + tempSong.getYearOfRelease() + "|" + tempSong.getYearOfRelease() + "|"
+                        + tempSong.getLengthMinute()
+                        + ":" + tempSong.getLengthSecond());
+            }
+        }
+
+        System.out.println("------------------------------------------");
+        startMenu();
     }
 
     /*
@@ -186,21 +254,19 @@ public class Main {
         System.out.println(" Are you sure this is right?");
         String sureChecker;
         do {
-            sureChecker=InputReader.getString("  >");
-            if(sureChecker.contains("yes")){
+            sureChecker = InputReader.getString("  >");
+            if (sureChecker.contains("yes")) {
+                Song song = new Song(songTitle, artistName, nOfPlays, yearOfRelease, lengthMinute, lengthSecond);
+                songList.add(song);
+                System.out.println(" Added song");
                 break;
-            }
-            else if (sureChecker.contains("no")){
+            } else if (sureChecker.contains("no")) {
                 addSong();
                 break;
-            }
-            else{
+            } else {
                 System.out.println("Invalid response");
             }
         } while (true);
-
-        Song song = new Song(songTitle, artistName, nOfPlays, yearOfRelease, lengthMinute, lengthSecond);
-        songList.add(song);
         System.out.println("------------------------------------------");
         startMenu();
     }
@@ -211,11 +277,45 @@ public class Main {
     private static void deleteSong() {
         System.out.println("------------------------------------------");
         System.out.println("Deleting a song");
+        // First checks of list is empty
         if (isEmpty()) {
             System.out.println(" There is nothing to remove");
         } else {
             System.out.println(" Enter the name of the song you want to remove");
+            String tempSongName = InputReader.getString("  >");
+            int indexOfSong = findByTitle(tempSongName);
+            if (indexOfSong == -1) {
+                System.out.println(" Song not found");
+                startMenu();
+            } else {
+                System.out.println(" Are you sure?");
+                boolean sure = true;
+                do {
+                    String sureChecker = InputReader.getString("  >");
+                    if (sureChecker.contains("yes")) {
+                        songList.remove(indexOfSong);
+                        System.out.println(" Removed song");
+                        sure = false;
+                    } else if (sureChecker.contains("no")) {
+                        sure = false;
+                    } else {
+                        System.out.println("Invalid response");
+                    }
+                } while (sure);
+                System.out.println("------------------------------------------");
+            }
         }
+    }
+
+    private static int findByTitle(String tempSongName) {
+        for (int i = 0; i < songList.size() - 1; i++) {
+            Song tempSong = songList.get(i);
+            if (tempSong.getSongTitle() == tempSongName) {
+                return i;
+            }
+
+        }
+        return -1;
     }
 
     // Checks if the list is empty, for deletion method
@@ -230,12 +330,47 @@ public class Main {
      * Prints all songs in list.
      */
     private static void printSongs() {
+        System.out.println("------------------------------------------");
+        System.out.println("Printing all songs");
+        System.out.println();
+        for (int i = 0; i < songList.size() - 1; i++) {
+            Song tempSong = songList.get(i);
+            System.out.println(tempSong.getSongTitle() + " by " + tempSong.getArtistName() + "|"
+                    + tempSong.getYearOfRelease() + "|" + tempSong.getYearOfRelease() + "|" + tempSong.getLengthMinute()
+                    + ":" + tempSong.getLengthSecond());
+        }
+        System.out.println("------------------------------------------");
+        startMenu();
     }
 
     /*
      * Prints songs that have over a certain number of plays
      */
     private static void printSongsOverNoPlays() {
+        System.out.println("------------------------------------------");
+        System.out.println("Printing over a certain number of plays");
+        System.out.println(" Enter minimum number of plays");
+        int minNumOfPlays;
+        do {
+            try {
+                minNumOfPlays = InputReader.getInt("  >");
+                break;
+            } catch (InputMismatchException e) {
+            }
+        } while (true);
+        System.out.println();
+        for (int i = 0; i < songList.size() - 1; i++) {
+            Song tempSong = songList.get(i);
+            if (tempSong.getNumOfPlays() > minNumOfPlays) {
+                System.out.println(tempSong.getSongTitle() + " by " + tempSong.getArtistName() + "|"
+                        + tempSong.getYearOfRelease() + "|" + tempSong.getYearOfRelease() + "|"
+                        + tempSong.getLengthMinute()
+                        + ":" + tempSong.getLengthSecond());
+            }
+        }
+
+        System.out.println("------------------------------------------");
+        startMenu();
     }
 
     /*
